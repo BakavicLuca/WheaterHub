@@ -53,7 +53,7 @@ import { AuthService } from '../../../core/services/auth.service';
       </div>
     </div>
   `,
-  styleUrls: ['../auth.component.scss']
+  styleUrls: ["../auth.component.scss"]
 })
 export class LoginComponent {
   private fb = inject(FormBuilder);

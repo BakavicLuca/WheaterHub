@@ -11,7 +11,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
     <app-header></app-header>
     <router-outlet></router-outlet>
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
   title = 'WeatherHub';

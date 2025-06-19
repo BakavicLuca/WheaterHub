@@ -49,7 +49,7 @@ import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner
       </div>
     </div>
   `,
-  styleUrls: ['./favorites.component.scss']
+  styleUrls: ["./favorites.component.scss"]
 })
 export class FavoritesComponent implements OnInit {
   private weatherService = inject(WeatherService);

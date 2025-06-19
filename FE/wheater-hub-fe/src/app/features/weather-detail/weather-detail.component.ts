@@ -80,7 +80,7 @@ import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner
       </div>
     </div>
   `,
-  styleUrls: ['./weather-detail.component.scss']
+  styleUrls: ["./weather-detail.component.scss"]
 })
 export class WeatherDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);

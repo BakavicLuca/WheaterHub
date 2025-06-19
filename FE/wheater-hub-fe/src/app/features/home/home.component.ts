@@ -50,7 +50,7 @@ import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner
       </div>
     </div>
   `,
-  styleUrls: ['./home.component.scss']
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
   private weatherService = inject(WeatherService);

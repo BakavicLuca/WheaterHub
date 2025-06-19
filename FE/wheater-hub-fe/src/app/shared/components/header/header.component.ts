@@ -25,7 +25,7 @@ import { AuthService } from '../../../core/services/auth.service';
       </nav>
     </header>
   `,
-  styleUrls: ['./header.component.scss']
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent {
   authService = inject(AuthService);
