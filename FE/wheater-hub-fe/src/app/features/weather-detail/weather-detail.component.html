@@ -1,0 +1,68 @@
+<div class="container">
+      <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+      
+      <div class="weather-result" *ngIf="!loading && weatherData">
+        <div class="result-header">
+          <button class="btn btn-secondary back-btn" (click)="goBack()">← Back</button>
+          <h2>{{ weatherData.city }}</h2>
+          <button 
+            class="btn favorite-btn"
+            [class.active]="isFavorite"
+            (click)="toggleFavorite()"
+            *ngIf="authService.isAuthenticated">
+            {{ isFavorite ? '❤️ Remove from Favorites' : '❤️ Add to Favorites' }}
+          </button>
+          <button 
+            class="btn favorite-btn"
+            (click)="showLoginPrompt()"
+            *ngIf="!authService.isAuthenticated">
+            ❤️ Login to Save
+          </button>
+        </div>
+        
+        <div class="current-weather">
+          <div class="current-temp">{{ weatherData.temperature }}°C</div>
+          <div class="current-condition">{{ weatherData.condition }}</div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-card">
+            <div class="detail-title">Feels Like</div>
+            <div class="detail-value">{{ weatherData.feelsLike }}°C</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-title">Humidity</div>
+            <div class="detail-value">{{ weatherData.humidity }}%</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-title">Wind Speed</div>
+            <div class="detail-value">{{ weatherData.windSpeed }} km/h</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-title">Pressure</div>
+            <div class="detail-value">{{ weatherData.pressure }} hPa</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-title">Visibility</div>
+            <div class="detail-value">{{ weatherData.visibility }} km</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-title">UV Index</div>
+            <div class="detail-value">{{ weatherData.uvIndex }}</div>
+          </div>
+        </div>
+
+        <div class="api-sources">
+          <h3>Data aggregated from multiple sources:</h3>
+          <div class="source-list">
+            <span class="source-tag" *ngFor="let source of weatherData.sources">{{ source }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="error-message" *ngIf="!loading && !weatherData">
+        <h2>Weather data not found</h2>
+        <p>Unable to fetch weather information for the requested location.</p>
+        <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+      </div>
+    </div>
