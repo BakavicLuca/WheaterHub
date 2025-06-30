@@ -10,8 +10,8 @@ export interface WeatherData {
   visibility: number;
   uvIndex: number;
   feelsLike: number;
-  sources: string[];
-  timestamp: Date;
+  sources?: string[];
+  timestamp?: Date;
 }
 
 export interface FavoriteLocation {

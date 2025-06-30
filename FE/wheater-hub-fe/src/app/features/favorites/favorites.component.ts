@@ -17,22 +17,22 @@ import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner
           <h2>My Favorite Locations</h2>
           <div></div>
         </div>
-        
+
         <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-        
+
         <div class="favorites-grid" *ngIf="!loading">
           <div class="empty-state" *ngIf="favorites.length === 0">
             <p>No favorite locations yet.</p>
             <p>Start by searching for a city and adding it to favorites!</p>
             <button class="btn btn-primary" (click)="goBack()">Explore Weather</button>
           </div>
-          
-          <div 
-            class="favorite-card" 
+
+          <div
+            class="favorite-card"
             *ngFor="let favorite of favorites"
             (click)="viewWeatherDetails(favorite.city)">
-            <button 
-              class="remove-favorite" 
+            <button
+              class="remove-favorite"
               (click)="removeFavorite(favorite, $event)">×</button>
             <div class="city-name">{{ favorite.city }}</div>
             <div class="city-temp" *ngIf="favorite.weatherData">
@@ -77,8 +77,8 @@ export class FavoritesComponent implements OnInit {
 
   removeFavorite(favorite: FavoriteLocation, event: Event): void {
     event.stopPropagation();
-    
-    this.weatherService.removeFromFavorites(favorite.id).subscribe({
+
+    this.weatherService.removeFavorite(favorite.id).subscribe({
       next: () => {
         this.favorites = this.favorites.filter(f => f.id !== favorite.id);
       },
